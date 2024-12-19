@@ -28,31 +28,31 @@ public class UserController {
 
     @GetMapping("/user")
     public String CreateUserForm(@ModelAttribute("user") User user) {
-        return "adduser";
+        return "user";
     }
 
     @PostMapping("/user")
     public String addUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "adduser";
+            return "user";
         }
         userService.save(user);
         return "redirect:/";
     }
 
-    @DeleteMapping("/deleteUser")
+    @GetMapping("/user-delete")
     public String deleteUser(@RequestParam("id") long id) {
         userService.delete(id);
         return "redirect:/";
     }
 
-    @GetMapping("/userUpdate")
+    @GetMapping("/user-update")
     public String getEditUserForm(Model model, @RequestParam("id") long id) {
         model.addAttribute("user", userService.findById(id));
-        return "updateuser";
+        return "userUpdate";
     }
 
-    @PostMapping("/userUpdate")
+    @PostMapping("/user-update")
     public String updateUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         userService.update(user);
         return "redirect:/";

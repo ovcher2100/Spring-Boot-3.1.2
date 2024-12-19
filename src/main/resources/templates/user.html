@@ -54,7 +54,7 @@
 </head>
 <body>
 <h2>Add New User</h2>
-<form th:method="POST" th:action="@{/adduser}" th:object="${user}">
+<form th:method="POST" th:action="@{/user}" th:object="${user}">
 
     <label>Enter name: </label>
     <input type="text" th:field="*{name}" id="name" required/>

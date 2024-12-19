@@ -97,15 +97,15 @@
         <td th:text="${user.department}"></td>
         <td th:text="${user.salary}"></td>
         <td>
-            <a th:href="@{updateuser(id=${user.id})}">Update</a>
-            <a th:href="@{deleteUser(id=${user.id})}">Delete</a>
+            <a th:href="@{user-update(id=${user.id})}">Update</a>
+            <a th:href="@{user-delete(id=${user.id})}">Delete</a>
         </td>
     </tr>
     </tbody>
 </table>
 
 <div class="add-user-form">
-    <form action="adduser" method="post">
+    <form action="user" method="post">
         <button type="submit">Add new user</button>
     </form>
 </div>
